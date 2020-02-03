@@ -17,6 +17,7 @@
     "@wdio/sync": "^5.18.5",
     "chromedriver": "^79.0.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-wdio": "^5.13.2",
     "wdio-chromedriver-service": "^5.0.2"
   },
   "dependencies": {

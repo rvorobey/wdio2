@@ -5,7 +5,10 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "plugins": [
+        "wdio"
+    ],
+    "extends": "plugin:wdio/recommended",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
