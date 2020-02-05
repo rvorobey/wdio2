@@ -57,7 +57,7 @@ const selectors = {
     save: '//button[@type="submit"]',
   },
   flashGroup: {
-    cardsLink: '//div[@id="site-menu"]//a[@qa="cards-link"]',
+    cardsLink: '//div[@id="site-menu"]//a[@qa="groups-link"]',
     newFlash: '//button[@qa="flash-create-new-group"]',
     modalOpen: '//div[contains(@class, "sidepanel")]',
     modalTitle: '//div[contains(@class, "sidepanel")]//*[@class="modal-title"]',
@@ -68,6 +68,16 @@ const selectors = {
     checkDesc: '//div[@qa="flash-group-list "]//div[@qa="description"]',
     titleClickable: '//div[@qa="flash-group-list "]//h4/a',
     h1: '//h1'
+  },
+  group: {
+    groupsLink: '//div[@id="site-menu"]//a[@qa="groups-link"]',
+    createButton: '//a[@qa="create-group-button"]',
+    h1: '//h1',
+    name: '//input[@name="name"]',
+    desc: '//input[@name="description"]',
+    access: '//select[@name="accessType"]',
+    submitButton: '//button[@type="submit"]',
+    checkTitle: '//div[@qa="group-list"]//h4/a',
   }
 };
 
