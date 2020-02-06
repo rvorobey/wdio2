@@ -24,8 +24,8 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-      './test/specs/register.spec.js',
       './test/specs/flashGroupCreate.spec.js',
+      './test/specs/groupCreate.spec.js',
       './test/specs/dayReportCreate.spec.js'
     ],
     //

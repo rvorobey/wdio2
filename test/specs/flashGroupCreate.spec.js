@@ -1,17 +1,11 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('./register.data');
-const { selectors } = require('./register.data');
+const { URL_LOGIN } = require('../data/auth');
+const { selectors } = require('../data/register.data');
+const { loginAsAdmin, logout } = require('../data/auth');
 
 describe('FLASH GROUP CREATE', () => {
   before('Login as admin', () => {
-    browser.url(URL_LOGIN);
-    $('form input[name="email"]').setValue('test2020@test.com');
-    $('form input[name="password"]').setValue('qwerty');
-    $('form button[type="submit"]').click();
-    browser.pause(1000);
-  });
-  after('AFTER', () => {
-    browser.pause(3000);
+    loginAsAdmin();
   });
   it('should click top menu Cards', () => {
     $(selectors.flashGroup.cardsLink).click();
@@ -61,5 +55,9 @@ describe('FLASH GROUP CREATE', () => {
     const actual = $(selectors.flashGroup.h1).getText();
     const expected = 'My group name 123';
     expect(actual).eq(expected);
+  });
+  after('AFTER', () => {
+    logout();
+    browser.pause(1000);
   });
 });

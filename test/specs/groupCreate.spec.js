@@ -1,6 +1,6 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('./register.data');
-const { selectors } = require('./register.data');
+const { URL_LOGIN } = require('../data/register.data');
+const { selectors } = require('../data/register.data');
 
 describe('GROUP CREATE', () => {
   before('Login as admin', () => {
