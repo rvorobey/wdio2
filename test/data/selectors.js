@@ -30,7 +30,7 @@ const selectors = {
     createButton: '//a[@qa="create-day-report-button"]',
   },
   flashGroup: {
-    cardsLink: '//div[@id="site-menu"]//a[@qa="groups-link"]',
+    cardsLink: '//div[@id="site-menu"]//a[@qa="cards-link"]',
     newFlash: '//button[@qa="flash-create-new-group"]',
     modalOpen: '//div[contains(@class, "sidepanel")]',
     modalTitle: '//div[contains(@class, "sidepanel")]//*[@class="modal-title"]',
