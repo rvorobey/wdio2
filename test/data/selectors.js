@@ -22,12 +22,13 @@ const selectors = {
     engLevelInput: '//select[@name="englishLevel"]',
   },
   report: {
+    diaryLink: '//div[@id="site-menu"]//a[@qa="diary-link"]',
+    createButton: '//a[@qa="create-day-report-button"]',
     morale: '//select[@name="morale"]',
     hours: '//input[@name="hours"]',
     day: '//textarea[@name="description"]',
     help: '//input[@id="input-0"]',
     understood: '//input[@id="input-1"]',
-    createButton: '//a[@qa="create-day-report-button"]',
   },
   flashGroup: {
     cardsLink: '//div[@id="site-menu"]//a[@qa="cards-link"]',

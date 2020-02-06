@@ -39,4 +39,4 @@ function logout(){
   $(selectors.common.logoutBtn).click();
 }
 
-module.exports = {URL_REGISTER, URL_LOGIN, loginAsAdmin, logout};
+module.exports = {URL_REGISTER, URL_LOGIN, loginAsAdmin, loginAsStudent, logout};

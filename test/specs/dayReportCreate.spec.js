@@ -1,35 +1,32 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('../data/register.data');
-const { URL_DIARY } = require('../data/register.data');
-const { selectors } = require('../data/register.data');
+
+const { selectors } = require('../data/selectors');
+const { loginAsAdmin, loginAsStudent, logout } = require('../data/auth');
 
 describe('CREATE DAY REPORT', () => {
-  before('Login as [ADMIN]', () => {
-    browser.url(URL_LOGIN);
-    $('form input[name="email"]').setValue('test2020@test.com');
-    $('form input[name="password"]').setValue('qwerty');
-    $('form button[type="submit"]').click();
+  before('Login as [STUDENT]', () => {
+    loginAsStudent();
     browser.pause(1000);
   });
-  it('should open [DIARY] page', () => {
-    browser.url(URL_DIARY);
-    browser.pause(1000);
+  it('should click top menu [DIARY]', () => {
+    $(selectors.report.diaryLink).click();
+    browser.pause(500);
   });
   it('should have correct [HEADER]', () => {
-    const actual = $(selectors.h1).getText();
+    const actual = $(selectors.common.h1).getText();
     const expected = 'Daily reports';
     expect(actual).equal(expected);
   });
   it('should click [CREATE DAY REPORT]', () => {
-    $(selectors.createButton).click();
+    $(selectors.report.createButton).click();
   });
   it('should display get [LAST 50 MESSAGES]', () => {
-    const actual = $(selectors.h4).getText();
+    const actual = $(selectors.common.h4).getText();
     const expected = 'Get last (50) day reports';
     expect(actual).equal(expected);
   });
   it('should have correct [HEADER]', () => {
-    const actual = $(selectors.h1).getText();
+    const actual = $(selectors.common.h1).getText();
     const expected = 'Create day report';
     expect(actual).equal(expected);
   });
@@ -56,7 +53,11 @@ describe('CREATE DAY REPORT', () => {
     browser.pause(3000);
   });
   it('should click [SAVE] button', () => {
-    $(selectors.report.save).click();
+    $(selectors.common.subBtn).click();
     browser.pause(3000);
+  });
+  after('AFTER', () => {
+    logout();
+    browser.pause(1000);
   });
 });
