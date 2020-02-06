@@ -1,17 +1,12 @@
 const { expect } = require('chai');
-const { URL_LOGIN } = require('../data/register.data');
-const { selectors } = require('../data/register.data');
+
+const { selectors } = require('../data/selectors');
+const { loginAsAdmin, logout } = require('../data/auth');
 
 describe('GROUP CREATE', () => {
   before('Login as admin', () => {
-    browser.url(URL_LOGIN);
-    $('form input[name="email"]').setValue('test2020@test.com');
-    $('form input[name="password"]').setValue('qwerty');
-    $('form button[type="submit"]').click();
-    browser.pause(1000);
-  });
-  after('AFTER', () => {
-    browser.pause(3000);
+    loginAsAdmin();
+    browser.pause(500);
   });
   it('should click top menu [GROUPS]', () => {
     $(selectors.group.groupsLink).click();
@@ -21,7 +16,7 @@ describe('GROUP CREATE', () => {
     browser.pause(500);
   });
   it('should have correct [HEADER]', () => {
-    const actual = $(selectors.group.h1).getText();
+    const actual = $(selectors.common.h1).getText();
     const expected = 'Create new Group';
     expect(actual).equal(expected);
   });
@@ -38,12 +33,16 @@ describe('GROUP CREATE', () => {
     el.selectByVisibleText('Members');
   });
   it('should click [CREATE] button', () => {
-    $(selectors.group.submitButton).click();
+    $(selectors.common.subBtn).click();
     browser.pause(500);
   });
   it('should first item in list be equal created group title', () => {
     const actual = $(selectors.group.checkTitle).getText();
     const expected = 'Test';
     expect(actual).eq(expected);
+  });
+  after('AFTER', () => {
+    logout();
+    browser.pause(1000);
   });
 });
