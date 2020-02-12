@@ -1,29 +1,14 @@
-const newUser = {
-  firstName: 'John',
+module.exports = {
+  firstName: 'Bob',
   lastName: 'Smith',
-  email: `${Math.random()}test1@test.com`,
+  phone: '13471234567',
   password: 'qwerty12345',
-  phone: '14021234567',
-  about: 'about',
-  goals: 'goals',
-  engLevel: 'Zero'
-};
-
-const page = {
-  reg: {
-    title: 'Progress Monitor',
-    h1: 'User Register',
-    desc: 'Profiles with fictitious or dummy data will be deleted.',
-    btnTxt: 'Submit'
+  engLevel: 'Zero',
+  generateRandomEmailAddress : function() {
+    const emailAddress = "test_" + Math.random().toString().replace('0.', '') + "@testing.com";
+    return emailAddress;
   },
-  login: {
-    title: 'Progress Monitor',
-    h1: 'User Login'
-  },
-  conf: {
-    title: 'Progress Monitor',
-    h1: 'You are a new user'
+  generateRandomString : function() {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   },
 };
-
-module.exports = { newUser, page };

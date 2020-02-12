@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 
-const { selectors } = require('../data/selectors');
-const { loginAsAdmin, logout } = require('../data/auth');
+const { selectors } = require('./selectors');
+const { loginAsAdmin, logout } = require('./auth');
 
 describe('FLASH GROUP CREATE', () => {
   before('Login as admin', () => {

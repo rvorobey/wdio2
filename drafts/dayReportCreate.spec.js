@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 
-const { selectors } = require('../data/selectors');
-const { loginAsAdmin, loginAsStudent, logout } = require('../data/auth');
+const { selectors } = require('./selectors');
+const { loginAsAdmin, loginAsStudent, logout } = require('./auth');
 
 describe('CREATE DAY REPORT', () => {
   before('Login as [STUDENT]', () => {
