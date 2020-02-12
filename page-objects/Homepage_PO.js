@@ -16,6 +16,12 @@ class Homepage_PO extends Base_PO {
   get registerLink() {
     return $('//a[@qa="register-link"]');
   }
+  get intro() {
+    return $('//p[@class="intro"]');
+  }
+  get version() {
+    return $('//span[@qa="app-version"]');
+  }
   get slogan() {
     return $('//small[@qa="app-slogan"]');
   }
@@ -24,6 +30,8 @@ class Homepage_PO extends Base_PO {
     expect(this.description.getText()).to.contain(data.description);
     expect(this.loginLink.getText()).to.contain(data.login);
     expect(this.registerLink.getText()).to.contain(data.register);
+    expect(this.intro.getText()).to.contain(data.intro);
+    expect(this.version.getText()).to.contain(data.version);
     expect(this.slogan.getText()).to.contain(data.slogan);
   }
 }

@@ -4,7 +4,7 @@ describe('Test HOMEPAGE on stage.pasv', () => {
   beforeEach(function() {
     Homepage_PO.open();
   });
-  it('Check title, description, buttons and slogan', () => {
+  it('Test HOMEPAGE elements', () => {
     Homepage_PO.correctInfo();
   });
 });
