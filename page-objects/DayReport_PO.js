@@ -57,35 +57,35 @@ class DayReport_PO extends Base_PO {
     return $('//textarea[@name="description"]');
   }
   save() {
-    browser.$('//button[contains(text(),"Save")]').click();
+    $('//button[contains(text(),"Save")]').click();
     browser.pause(1000);
   }
   create() {
-    browser.$('//a[@qa="create-day-report-button"]').click();
+    $('//a[@qa="create-day-report-button"]').click();
     browser.pause(1000);
   }
   diary() {
-    browser.$('//div[@id="site-menu"]//a[@qa="diary-link"]').click();
+    $('//div[@id="site-menu"]//a[@qa="diary-link"]').click();
     browser.pause(1000);
   }
   approve() {
-    browser.$('//div[@qa="day-report-item-0"]//button[@qa="approve-button"]').click();
+    $('//div[@qa="day-report-item-0"]//button[@qa="approve-button"]').click();
     browser.pause(1000);
   }
   approved() {
-    browser.$('//div[@qa="day-report-item-0"]//span[@qa="approved-mark"]').isExisting();
+    $('//div[@qa="day-report-item-0"]//span[@qa="approved-mark"]').isExisting();
     browser.pause(1000);
   }
   delete() {
-    browser.$('//div[@qa="day-report-item-0"]//button[@qa="delete-button"]').click();
+    $('//div[@qa="day-report-item-0"]//button[@qa="delete-button"]').click();
     browser.pause(1000);
   }
   like() {
-    browser.$('//div[@qa="day-report-item-0"]//button[@qa="like-button"]').click();
+    $('//div[@qa="day-report-item-0"]//button[@qa="like-button"]').click();
     browser.pause(1000);
   }
   liked() {
-    browser.$('//div[@qa="day-report-item-0"]//button[contains(text(), "I like this 👍")]').isExisting();
+    $('//div[@qa="day-report-item-0"]//button[contains(text(), "I like this 👍")]').isExisting();
   }
   fillOutReport() {
     expect(this.header.getText()).to.contain(data.header);
