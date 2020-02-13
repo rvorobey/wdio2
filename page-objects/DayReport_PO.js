@@ -56,17 +56,25 @@ class DayReport_PO extends Base_PO {
   get howWasYourDay() {
     return $('//textarea[@name="description"]');
   }
-  get saveButton() {
-    return $('//button[contains(text(),"Save")]');
-  }
   save() {
-    this.saveButton.click();
-  }
-  get createDayReport() {
-    return $('//a[@qa="create-day-report-button"]');
+    browser.$('//button[contains(text(),"Save")]').click();
+    browser.pause(1000);
   }
   create() {
-    this.createDayReport.click();
+    browser.$('//a[@qa="create-day-report-button"]').click();
+    browser.pause(1000);
+  }
+  diary() {
+    browser.$('//div[@id="site-menu"]//a[@qa="diary-link"]').click();
+    browser.pause(1000);
+  }
+  approve() {
+    browser.$('//div[@qa="day-report-item-0"]//button[@qa="approve-button"]').click();
+    browser.pause(1000);
+  }
+  approved() {
+    browser.$('//div[@qa="day-report-item-0"]//span[@qa="approved-mark"]').isExisting();
+    browser.pause(500);
   }
   fillOutReport() {
     expect(this.header.getText()).to.contain(data.header);
@@ -79,9 +87,7 @@ class DayReport_PO extends Base_PO {
     this.moraleLevel.selectByVisibleText(data.morale);
     this.howManyHours.setValue(data.hours);
     this.howWasYourDay.setValue(data.generateRandomString());
-    browser.pause(10000);
-    browser.pause(2000);
     this.save();
   }
-};
+}
 export default new DayReport_PO();
