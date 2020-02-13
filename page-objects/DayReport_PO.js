@@ -74,7 +74,11 @@ class DayReport_PO extends Base_PO {
   }
   approved() {
     browser.$('//div[@qa="day-report-item-0"]//span[@qa="approved-mark"]').isExisting();
-    browser.pause(500);
+    browser.pause(1000);
+  }
+  delete() {
+    browser.$('//div[@qa="day-report-item-0"]//button[@qa="delete-button"]').click();
+    browser.pause(1000);
   }
   fillOutReport() {
     expect(this.header.getText()).to.contain(data.header);
