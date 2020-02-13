@@ -49,9 +49,28 @@ class Groups_PO extends Base_PO {
     browser.$('//button[contains(text(),"Add")]').click();
     browser.pause(1000);
   }
-  editSaveButton() {
+  saveButton() {
     browser.$('//button[contains(text(),"Save")]').click();
     browser.pause(1000);
+  }
+  createNewLectureButton() {
+    browser.$('//a[@qa="create-lecture-button"]').click();
+    browser.pause(1000);
+  }
+  get lectureName() {
+    return $('//input[@name="name"]');
+  }
+  get lectureDate() {
+    return $('//input[@placeholder="Date"]');
+  }
+  get youtubeLink() {
+    return $('//input[@name="video"]');
+  }
+  get lectureDescription() {
+    return $('//textarea[@name="description"]');
+  }
+  get lectureHomework() {
+    return $('//textarea[@name="homework"]');
   }
   createNewGroup() {
     this.groupsLink();
@@ -76,8 +95,21 @@ class Groups_PO extends Base_PO {
     this.addQuiz.setValue('a');
     browser.pause(2000);
     this.addButton();
-    this.editSaveButton();
+    this.saveButton();
     expect(this.checkTitle.getText()).to.contain(`${data.name} 2`);
+  }
+  createNewLecture() {
+    this.groupsLink();
+    expect(this.header.getText()).to.contain(data.header);
+    this.checkTitle.click();
+    browser.pause(1000);
+    this.createNewLectureButton();
+    this.lectureName.setValue(data.lectureName);
+    this.youtubeLink.setValue(data.youtubeLink);
+    this.lectureDate.setValue(data.date);
+    this.lectureDescription.setValue(data.lectureDesc);
+    this.lectureHomework.setValue(data.homework);
+    this.saveButton();
   }
 }
 export default new Groups_PO();
